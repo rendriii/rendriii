@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contoh</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label>Username</label><br />
+      <input id="username" type="text" name="username" /><br /><br />
+      <label>Password</label><br />
+      <input id="password" type="text" name="password" /><br /><br />
+      <label>Ulangi Password</label><br />
+      <input
+        id="ulangi_password"
+        type="text"
+        name="ulangi_password"
+      /><br /><br />
+      <input type="button" name="submit" value="submit" onclick="login()" />
+    </form>
+    <h3 id="user"></h3>
+    <h3 id="pass"></h3>
+    <h3 id="ulang"></h3>
+    <script>
+      function login() {
+        //input
+        let username = document.getElementById("username").value;
+        document.getElementById("user").innerHTML = username;
+        let password = document.getElementById("password").value;
+        document.getElementById("pass").innerHTML = password;
+        let ulangi_password = document.getElementById("ulangi_password").value;
+        document.getElementById("ulang").innerHTML = ulangi_password;
+      }
+    </script>
+  </body>
+</html>

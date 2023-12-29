@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Retro Music</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+        margin: 20px;
+        background: url("back.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        border-radius: 8px;
+        border: 2px solid whitesmoke;
+      }
+
+      header img {
+        width: 150px;
+        height: auto;
+      }
+
+      .song-container {
+        display: flex;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+
+      .song {
+        text-align: center;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      .song img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid whitesmoke;
+      }
+
+      audio {
+        width: 60%;
+        margin-top: 10px;
+      }
+
+      footer {
+        text-align: center;
+        color: #fff;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="" />
+    </header>
+    <br />
+    <div class="song-container">
+      <div class="song">
+        <img src="pamungkas.jpg" alt="One Only" />
+        <audio controls>
+          <source src="One Only.m4a" type="audio/mp4" />
+        </audio>
+        <p><b>One Only</b></p>
+        <p>Pamungkas</p>
+      </div>
+
+      <div class="song">
+        <img src="panturas.jpg" alt="Sunshine" />
+        <audio controls>
+          <source src="Sunshine.m4a" type="audio/mp4" />
+        </audio>
+        <p><b>Sunshine</b></p>
+        <p>The Panturas</p>
+      </div>
+
+      <div class="song">
+        <img src="lantis.jpeg" alt="Lampu Merah" />
+        <audio controls>
+          <source src="lampu merah.m4a" type="audio/mp4" />
+        </audio>
+        <p><b>Lampu Merah</b></p>
+        <p>The Lantis</p>
+      </div>
+
+      <div class="song">
+        <img src="d4vd.jpg" alt="Here With Me" />
+        <audio controls>
+          <source src="here with me.m4a" type="audio/mp4" />
+        </audio>
+        <p><b>Here With Me</b></p>
+        <p>D4VD</p>
+      </div>
+    </div>
+
+    <footer>
+      <p><b>@RetroMusic 2023</b></p>
+    </footer>
+  </body>
+</html>

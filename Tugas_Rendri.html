@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messenger</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2; /* Warna latar belakang */
+      }
+      /* CSS untuk bagian header */
+      header {
+        text-align: center;
+        padding: 10px;
+        background-color: goldenrod; /* Warna latar header */
+        color: whitesmoke; /* Warna teks header */
+      }
+      /* CSS untuk kontainer chat */
+      #chat-container {
+        padding: 20px;
+        max-width: 100%;
+        margin: 20px;
+        background-color: white; /* Warna latar kontainer chat */
+        border-radius: 8px; /* Sudut lengkung pada kontainer chat */
+        border: 2px solid goldenrod; /* Garis tepi kontainer chat */
+      }
+      /* CSS untuk input teks */
+      input[type="text"] {
+        width: 70%;
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 8px; /* Sudut lengkung pada input teks */
+        border: 2px solid goldenrod; /* Garis tepi input teks */
+      }
+      /* CSS untuk tombol kirim */
+      input[type="button"] {
+        width: 28%;
+        padding: 8px;
+        box-sizing: border-box;
+        background-color: goldenrod; /* Warna latar tombol kirim */
+        color: white; /* Warna teks tombol kirim */
+        border: 1px solid goldenrod; /* Garis tepi tombol kirim */
+        border-radius: 8px; /* Sudut lengkung pada tombol kirim */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Bagian header dengan nama pengguna -->
+    <header>
+      <h3>Rendri Pambudi</h3>
+    </header>
+    <!-- Kontainer untuk menampilkan pesan chat -->
+    <div id="chat-container"></div>
+    <!-- Bagian input pesan dan tombol kirim -->
+    <div style="text-align: center">
+      <input type="text" id="pesan" placeholder="Masukkan pesan Anda..." />
+      <input type="button" value="Kirim" onclick="kirim()" />
+    </div>
+    <script>
+      // Fungsi untuk mengirim pesan
+      function kirim() {
+        var pesanInput = document.getElementById("pesan");
+        var chatContainer = document.getElementById("chat-container");
+        // Memeriksa apakah input pesan tidak kosong
+        if (pesanInput.value.trim() !== "") {
+          // Membuat pesan dengan format: Pengirim: Pesan
+          var pesan =
+            "<div><strong>Rendri:</strong> " + pesanInput.value + "</div>";
+          // Menambahkan pesan ke dalam kontainer chat
+          chatContainer.innerHTML += pesan;
+          // Mengosongkan input pesan setelah terkirim
+          pesanInput.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Retro</title>
+    <style>
+      body {
+        background-image: url("back_login.jpg");
+        color: #fff;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        font-size: 3em;
+        text-align: center;
+      }
+
+      .container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: rgba(40, 40, 40, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+
+      .login {
+        background-size: cover;
+        height: 210px;
+      }
+
+      .login-header {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .login-form {
+        margin-top: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 1.2em;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 1em;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="login-header">Login</h1>
+      <form
+        class="login-form"
+        action="FINAL.html"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Masukkan username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Masukkan password"
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "" || password === "") {
+          alert("Harap isi kedua kolom username dan password.");
+          return false;
+        }
+
+        if (username === "retro" && password === "1111") {
+          alert("Login berhasil!");
+          window.location.href = "FINAL.html";
+        } else {
+          alert("Username atau password salah. Coba lagi.");
+        }
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

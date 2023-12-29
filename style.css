@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 30%;
+    background-color:rgb(166, 166, 166);
+    padding: 10px;
+    margin: 4px;
+    
+}
+.center-text {
+    text-align: center;
+}
+

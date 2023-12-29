@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Buku</title>
+    <style>
+      body {
+        background-color: goldenrod;
+        text-align: center;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kontainer-form">
+      <h2>Tambah Data Buku</h2>
+      <form id="dataBukuForm">
+        <label for="kode">Kode Buku</label><br />
+        <input type="number" id="kode" name="kode" required /><br /><br />
+
+        <label for="judul">Judul Buku</label><br />
+        <input type="text" id="judul" name="judul" required /><br />
+
+        <p>Penulis</p>
+        <select id="penulis" name="penulis">
+          <option value="Abdul Kadir">Abdul Kadir</option>
+          <option value="Dewi Lestari">Dewi Lestari</option>
+          <option value="Raditya Dika">Raditya Dika</option></select
+        ><br /><br />
+
+        <p>Penerbit</p>
+        <select id="penerbit" name="penerbit">
+          <option value="Andi Publisher">Andi Publisher</option>
+          <option value="Elexmedia Computindo">Elexmedia Computindo</option>
+          <option value="Surya Publisher">Surya Publisher</option></select
+        ><br /><br />
+
+        <label for="harga">Harga Buku</label><br />
+        <input type="number" id="harga" name="harga" required /><br /><br />
+
+        <label for="stok">Stok</label><br />
+        <input type="number" id="stok" name="stok" required /><br /><br />
+
+        <input type="button" value="Simpan" onclick="tampilkanData()" />
+      </form>
+    </div>
+
+    <div id="outputData" style="display: none">
+      <h3>Data Yang Di Input:</h3>
+      <p id="outputKode"></p>
+      <p id="outputJudul"></p>
+      <p id="outputPenulis"></p>
+      <p id="outputPenerbit"></p>
+      <p id="outputHarga"></p>
+      <p id="outputStok"></p>
+    </div>
+
+    <script>
+      function tampilkanData() {
+        var kode = document.getElementById("kode").value;
+        var judul = document.getElementById("judul").value;
+        var penulis = document.getElementById("penulis").value;
+        var penerbit = document.getElementById("penerbit").value;
+        var harga = document.getElementById("harga").value;
+        var stok = document.getElementById("stok").value;
+
+        document.getElementById("outputKode").textContent =
+          "Kode Buku: " + kode;
+        document.getElementById("outputJudul").textContent =
+          "Judul Buku: " + judul;
+        document.getElementById("outputPenulis").textContent =
+          "Penulis: " + penulis;
+        document.getElementById("outputPenerbit").textContent =
+          "Penerbit: " + penerbit;
+        document.getElementById("outputHarga").textContent =
+          "Harga Buku: " + harga;
+        document.getElementById("outputStok").textContent = "Stok: " + stok;
+
+        document.getElementById("outputData").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

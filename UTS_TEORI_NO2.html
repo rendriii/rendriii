@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+      .kotak {
+        flex: 1;
+        height: 100%;
+      }
+      #merah1 {
+        background-color: red;
+      }
+      #biru2 {
+        background-color: blue;
+      }
+    </style>
+    <title>UTS PEMROGRAMAN WEB NOMOR 2</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="kotak" id="merah1"></div>
+      <div class="kotak" id="biru2"></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mengubah warna objek 1 menjadi merah
+        document.getElementById("merah1").style.backgroundColor = "red";
+
+        // Mengubah warna objek 2 menjadi biru
+        document.getElementById("biru2").style.backgroundColor = "blue";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTS NOMER 3</title>
+    <style>
+      body {
+        margin: 20px;
+        border: 4px solid whitesmoke;
+        display: flexbox;
+        box-shadow: inset;
+      }
+
+      label {
+        display: flex;
+        margin-bottom: 10px;
+      }
+
+      select {
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 7px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      #totalBiaya {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="pengiriman">Pilih Pengiriman:</label>
+    <select id="pengiriman">
+      <option value="35000">Next Day (Rp. 35.000)</option>
+      <option value="15000">Reguler (Rp. 15.000)</option>
+      <option value="40000">Kargo (Rp. 40.000)</option>
+    </select>
+
+    <label for="kurir">Pilih Kurir:</label>
+    <select id="kurir">
+      <option value="jne">JNE (Rp. 15.000)</option>
+    </select>
+
+    <button onclick="hitungTotalBiaya()">Hitung Total Biaya</button>
+
+    <div id="totalBiaya"></div>
+
+    <script>
+      function hitungTotalBiaya() {
+        var pengiriman = parseInt(document.getElementById("pengiriman").value);
+        var kurir = document.getElementById("kurir").value;
+
+        var hargaSSD = 206000;
+
+        var hargaKurirJNE = 0;
+        if (kurir === "jne") {
+          hargaKurirJNE = 15000;
+        }
+
+        var totalBiaya = hargaSSD + pengiriman + hargaKurirJNE;
+
+        document.getElementById("totalBiaya").innerHTML =
+          "Total Biaya: Rp. " + totalBiaya.toLocaleString();
+      }
+    </script>
+  </body>
+</html>

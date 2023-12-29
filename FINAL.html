@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Musik</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+        margin: 20px;
+        background: url("back.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid whitesmoke;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: relative;
+      }
+      header img {
+        width: 150px;
+        height: auto;
+        cursor: pointer;
+      }
+      #search {
+        padding: 10px;
+        border: none;
+        margin-left: 700px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+      }
+      #profileLink {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+      }
+      .song-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      .song {
+        text-align: center;
+        margin: 10px;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+      }
+      .song img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid whitesmoke;
+        transition: transform 0.3s ease-in-out;
+      }
+      #player {
+        text-align: center;
+        margin: 20px;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      #selectedImage {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+      }
+      #selectedTitle {
+        margin-top: 10px;
+        font-size: 1.2em;
+      }
+      #artistName {
+        color: #ddd;
+        margin-top: 5px;
+      }
+      .hidden {
+        display: none;
+      }
+      footer {
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      #profile img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo1.png" alt="" />
+      <input
+        type="text"
+        id="search"
+        placeholder="Cari Lagu Anda"
+        oninput="searchSongs()"
+      />
+      <a href="LOGIN_FINAL.html" id="profile">
+        <img src="profile.png" alt="Profile" />
+      </a>
+    </header>
+    <br />
+    <br /><br />
+    <div class="song-container" id="songContainer"></div>
+    <div id="player">
+      <div class="song-info">
+        <img id="selectedImage" alt="" />
+        <p id="selectedTitle"></p>
+        <p id="artistName"></p>
+      </div>
+      <audio id="audioPlayer" class="audio-player" controls></audio>
+    </div>
+    <script>
+      var audioPlayer = document.getElementById("audioPlayer");
+      var songs = [
+        {
+          title: "One Only",
+          artist: "Pamungkas",
+          image: "pamungkas.jpg",
+          audio: "One Only.m4a",
+        },
+        {
+          title: "Sunshine",
+          artist: "The Panturas",
+          image: "panturas.jpg",
+          audio: "Sunshine.m4a",
+        },
+        {
+          title: "Lampu Merah",
+          artist: "The Lantis",
+          image: "lantis.jpeg",
+          audio: "lampu merah.m4a",
+        },
+        {
+          title: "Here With Me",
+          artist: "D4VD",
+          image: "d4vd.jpg",
+          audio: "here with me.m4a",
+        },
+      ];
+      songs.sort((a, b) => a.title.localeCompare(b.title));
+      var songContainer = document.getElementById("songContainer");
+      var playerDiv = document.getElementById("player");
+      var selectedImage = document.getElementById("selectedImage");
+      var selectedTitle = document.getElementById("selectedTitle");
+      var artistName = document.getElementById("artistName");
+      var searchInput = document.getElementById("search");
+
+      function displaySongs(songsToDisplay) {
+        songContainer.innerHTML = songsToDisplay
+          .map(
+            (song, index) => `
+                        <div class="song" onclick="showSingleSong(${index})">
+                            <img src="${song.image}" alt="${song.title}" />
+                            <p><b>${song.title}</b></p>
+                            <p>${song.artist}</p>
+                        </div>
+                    `
+          )
+          .join("");
+      }
+      function showSingleSong(index) {
+        hideAllSongs();
+        audioPlayer.src = songs[index].audio;
+        audioPlayer.play();
+
+        selectedImage.src = songs[index].image;
+        selectedTitle.textContent = songs[index].title;
+        artistName.textContent = songs[index].artist;
+
+        playerDiv.style.display = "block";
+      }
+      function hideAllSongs() {
+        document.querySelectorAll(".song").forEach((songElement) => {
+          songElement.classList.add("hidden");
+        });
+      }
+      function searchSongs() {
+        var searchTerm = searchInput.value.toLowerCase();
+        var filteredSongs = songs.filter(
+          (song) =>
+            song.title.toLowerCase().includes(searchTerm) ||
+            song.artist.toLowerCase().includes(searchTerm)
+        );
+        displaySongs(filteredSongs);
+      }
+      function showAllSongs() {
+        playerDiv.style.display = "none";
+        document.querySelectorAll(".song").forEach((songElement) => {
+          songElement.classList.remove("hidden");
+        });
+      }
+      displaySongs(songs);
+    </script>
+    <footer>
+      <p><b>@RetroMusic 2023</b></p>
+    </footer>
+  </body>
+</html>

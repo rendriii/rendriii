@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* CSS untuk tampilan halaman */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: goldenrod;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .verification-form {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .verification-input {
+        width: 30px;
+        height: 40px;
+        font-size: 18px;
+        text-align: center;
+        margin: 5px;
+        border: 1px solid goldenrod;
+        border-radius: 5px;
+      }
+
+      .verification-input.error {
+        border-color: red; /* Mengubah warna border menjadi merah saat terdapat kesalahan */
+      }
+
+      .verification-input:focus {
+        border-color: goldenrod;
+      }
+
+      #submit-btn {
+        background-color: goldenrod;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #submit-btn.error {
+        background-color: red; /* Mengubah warna latar belakang tombol menjadi merah saat terdapat kesalahan */
+      }
+    </style>
+    <title>Form Kode Verifikasi</title>
+  </head>
+  <body>
+    <!-- Struktur formulir untuk kode verifikasi -->
+    <div class="verification-form">
+      <h2>Verifikasi Kode</h2>
+      <p>Masukkan kode verifikasi yang dikirimkan ke nomor Anda.</p>
+
+      <div>
+        <input
+          type="text"
+          class="verification-input"
+          id="digit1"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          class="verification-input"
+          id="digit2"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          class="verification-input"
+          id="digit3"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          class="verification-input"
+          id="digit4"
+          maxlength="1"
+        />
+        <input
+          type="text"
+          class="verification-input"
+          id="digit5"
+          maxlength="1"
+        />
+      </div>
+      <br />
+
+      <!-- Tombol submit untuk memeriksa kode verifikasi -->
+      <button id="submit-btn" onclick="checkVerificationCode()">Kirim</button>
+    </div>
+
+    <!-- Skrip JavaScript untuk memeriksa kode verifikasi -->
+    <script>
+      function checkVerificationCode() {
+        var enteredCode =
+          document.getElementById("digit1").value +
+          document.getElementById("digit2").value +
+          document.getElementById("digit3").value +
+          document.getElementById("digit4").value +
+          document.getElementById("digit5").value;
+
+        var correctCode = "12345";
+
+        if (enteredCode === correctCode) {
+          // Jika kode verifikasi benar, arahkan ke halaman "Tugas_Rendri.html"
+          window.location.href = "Tugas_Rendri.html";
+        } else {
+          // Jika kode verifikasi salah, tambahkan class error pada kolom input dan tombol submit
+          document
+            .querySelectorAll(".verification-input")
+            .forEach(function (input) {
+              input.classList.add("error");
+            });
+
+          document.getElementById("submit-btn").classList.add("error");
+        }
+      }
+    </script>
+  </body>
+</html>
